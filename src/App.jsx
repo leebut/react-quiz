@@ -1,7 +1,7 @@
 import { useEffect, useReducer } from "react";
 import "./App.css";
 import Header from "./Header.jsx";
-import Main from "./Main.jsx";
+import Main from "./MainSection.jsx";
 import Loader from "./Loader.jsx";
 import Error from "./Error.jsx";
 import StartScreen from "./StartScreen.jsx";
