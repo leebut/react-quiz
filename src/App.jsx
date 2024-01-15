@@ -18,6 +18,7 @@ const initialState = {
 };
 
 function reducer(state, action) {
+  const question = state.questions.at(state.index);
   switch (action.type) {
     case "dataReceived":
       return { ...state, questions: action.payload, status: "ready" };
@@ -26,7 +27,6 @@ function reducer(state, action) {
     case "start":
       return { ...state, status: "active" };
     case "newAnswer":
-      const question = state.questions.at(state.index);
       return {
         ...state,
         answer: action.payload,
@@ -36,7 +36,7 @@ function reducer(state, action) {
             : state.points,
       };
     case "nextQuestion":
-      return { ...state, index: state.index + 1 };
+      return { ...state, index: state.index + 1, answer: null };
     default:
       throw new Error("You cannot do that!");
   }
